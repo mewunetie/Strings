@@ -56,7 +56,7 @@ char *Str_concat(char pcDest[], const char pcSrc[])
       i++;
    }
    
-   pcDest[i] = '\0';
+   pcDest[destlength + i] = '\0';
    return pcDest;
 }
 
