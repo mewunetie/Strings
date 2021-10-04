@@ -49,14 +49,13 @@ char *Str_concat(char pcDest[], const char pcSrc[])
 
   
 
-   /* check that the start/end points are correct */
    while(pcSrc[i] != '\0') {
       pcDest[destlength] = pcSrc[i];
       destlength++;
       i++;
    }
    
-   pcDest[destlength + i] = '\0';
+   pcDest[destlength + i - 1] = '\0';
    return pcDest;
 }
 
