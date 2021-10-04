@@ -23,7 +23,7 @@ size_t Str_getLength(const char pcSrc[])
 
 char *Str_copy(char pcDest[], const char pcSrc[])
 {
-   int i = 0;
+   size_t i = 0;
    assert(pcSrc != NULL);
    assert(pcDest != NULL);
 
@@ -31,36 +31,32 @@ char *Str_copy(char pcDest[], const char pcSrc[])
        pcDest[i] = pcSrc[i];
        i++;
    }
+   pcDest[i] = '\0';
 
 return pcDest;
 }
 
-char *Str_concat(char pcSrc1[], const char pcSrc2[])
+char *Str_concat(char pcDest[], const char pcSrc[])
 {
-   int src1length = sizeof(pcSrc1)/sizeof(char);
-   int src2length = sizeof(pcSrc2)/sizeof(char);
-   int lengthofarrays = (src1length) + (src2length);
-   int pcDest[lengthofarrays];
-   int i = 0;
-   int j = 0;
+   size_t destlength;
+   size_t i = 0;
+   size_t j = 0;
 
-   assert(pcSrc1 != NULL);
-   assert(pcSrc2 != NULL);
+   assert(pcDest != NULL);
+   assert(pcSrc != NULL);
+
+   destlength = Str_getLength(pcDest);
 
   
 
    /* check that the start/end points are correct */
-   while(i < src1length) {
-      pcDest[i] = pcSrc1[i];
+   while(pcSrc[i] != '\0') {
+      pcDest[destlength] = pcSrc[i];
+      destlength++;
       i++;
    }
    
-   while(j < lengthofarrays) {
-      pcDest[i] = pcSrc2[j];
-      j++;
-   }
-
- /* incompatible return type */
+   pcDest[i] = '\0';
    return pcDest;
 }
 
