@@ -2,6 +2,7 @@
 /* stra.c */
 /* Author: Misrach Ewunetie */
 /*------------------------------------------------------------*/
+#include "str.h"
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
@@ -59,7 +60,7 @@ char *Str_concat(char pcSrc1[], const char pcSrc2[])
       j++;
    }
 
-
+ /* incompatible return type */
    return pcDest;
 }
 
