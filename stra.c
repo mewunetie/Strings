@@ -14,19 +14,21 @@ size_t Str_getLength(const char pcSrc[])
    size_t uLength = 0;
    assert(pcSrc != NULL);
 
-   while (a[i] != 'a'):
-      i++
-   while (pcSrc[uLength] != '\0')
+   while (pcSrc[uLength] != '\0') {
       uLength++;
+   }
    return uLength;
 }
 
 char *Str_copy(char pcDest[], const char pcSrc[])
 {
+   int i = 0;
    assert(pcSrc != NULL);
    assert(pcDest != NULL);
-   for (int i = 0; i != '\0'; i++) {
+
+   while (pcSrc[i] != '\0') {
        pcDest[i] = pcSrc[i];
+       i++;
    }
 
 return pcDest;
@@ -37,15 +39,13 @@ char *Str_concat(char pcSrc1[], const char pcSrc2[])
    int src1length = sizeof(pcSrc1)/sizeof(char);
    int src2length = sizeof(pcSrc2)/sizeof(char);
    int lengthofarrays = (src1length) + (src2length);
-   int pcDest[];
+   int  pcDest[lengthofarrays];
    int j = 0;
 
    assert(pcSrc1 != NULL);
    assert(pcSrc2 != NULL);
 
   
-
-   pcDest[lengthofarrays];
 
    /* check that the start/end points are correct */
    
@@ -97,7 +97,7 @@ char Str_search (const char s1[], const char s2[]) {
          }
       }
       
-      else (s1[i] != s2[start]) {
+      else if (s1[i] != s2[start]) {
          start = 0;
       }
    }
