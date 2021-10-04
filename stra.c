@@ -63,11 +63,12 @@ char *Str_concat(char pcSrc1[], const char pcSrc2[])
 
 int Str_compare (const char s1[], const char s2[]){
    int returnval = 0;
+   int i = 0;
 
    assert(s1 != NULL);
    assert(s2 != NULL);
 
-   for (int i = 0; i != '\n'; i++){
+   while(s1[i] != '\n' && s1[i] != '\n') {
       if (s1[i] > s2[i]) {
          return 1;
       }
@@ -83,15 +84,20 @@ consider doing nested loop w if == continue going and else break? */
 char Str_search (const char s1[], const char s2[]) {
    int stringstart = '\0';
    int start = 0;
+   int i = 0;
 
    assert(s1 != NULL);
    assert(s2 != NULL);
 
-   for (int i = 0; i != '\0'; i++) {
+   while (s1[i] != '\0' && s1[i] != '\0') {
+      if (s1[i] == s2[start]) {
+         stringstart = i;
+      }
+      
       if (s1[i] == s2[start]) {
          stringstart = i;
 
-         while (s1[i] == s2[start] && i != '\0' && start != '\0') {
+         while (s1[i] == s2[start] && s1[i] != '\0' && s2[start] != '\0') {
          start++;
          i++;
          }
