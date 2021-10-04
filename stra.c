@@ -2,6 +2,7 @@
 /* stra.c */
 /* Author: Misrach Ewunetie */
 /*------------------------------------------------------------*/
+#include "str.h"
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
@@ -39,7 +40,8 @@ char *Str_concat(char pcSrc1[], const char pcSrc2[])
    int src1length = sizeof(pcSrc1)/sizeof(char);
    int src2length = sizeof(pcSrc2)/sizeof(char);
    int lengthofarrays = (src1length) + (src2length);
-   int  pcDest[lengthofarrays];
+   int pcDest[lengthofarrays];
+   int i = 0;
    int j = 0;
 
    assert(pcSrc1 != NULL);
@@ -48,16 +50,17 @@ char *Str_concat(char pcSrc1[], const char pcSrc2[])
   
 
    /* check that the start/end points are correct */
-   
-   for (int i = 0; i < src1length; i++) { 
+   while(i < src1length) {
       pcDest[i] = pcSrc1[i];
+      i++;
    }
-
-   for (int i = src1length; i < lengthofarrays; i++) {
+   
+   while(j < lengthofarrays) {
       pcDest[i] = pcSrc2[j];
       j++;
    }
 
+ /* incompatible return type */
    return pcDest;
 }
 
