@@ -66,18 +66,22 @@ char *Str_concat(char pcSrc1[], const char pcSrc2[])
 
 int Str_compare (const char s1[], const char s2[]){
    int returnval = 0;
+   int i = 0;
+   int lessthan = -1;
+   int greaterthan = 1;
 
    assert(s1 != NULL);
    assert(s2 != NULL);
 
-   for (int i = 0; i != '\n'; i++){
+    while (s1[i] != '\0' && s2[i] != '\0') {
       if (s1[i] > s2[i]) {
-         return 1;
+         return greaterthan;
       }
       if (s1[i] < s2[i]) {
-         return -1;
+         return lessthan;
       }
-   }
+    }
+
     return returnval;
 }
 
