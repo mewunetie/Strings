@@ -80,6 +80,7 @@ int Str_compare (const char s1[], const char s2[]){
       if (s1[i] < s2[i]) {
          return lessthan;
       }
+      i++;
     }
 
     return returnval;
@@ -90,11 +91,12 @@ consider doing nested loop w if == continue going and else break? */
 char Str_search (const char s1[], const char s2[]) {
    int stringstart = '\0';
    int start = 0;
+   int i = 0;
 
    assert(s1 != NULL);
    assert(s2 != NULL);
 
-   for (int i = 0; i != '\0'; i++) {
+   while (s1[i] != '\0' && s2[i] != '\0') {
       if (s1[i] == s2[start]) {
          stringstart = i;
 
@@ -107,7 +109,8 @@ char Str_search (const char s1[], const char s2[]) {
       else if (s1[i] != s2[start]) {
          start = 0;
       }
+      i++;
    }
-
+   
    return stringstart;
 }
