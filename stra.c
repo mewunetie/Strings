@@ -99,8 +99,12 @@ char *Str_search (const char haystack[], const char needle[]) {
 
 for (i = 0; needle[i] != '\0'; i++) {
    save = i;
-   if (needle[j] == '\0') return &haystack[stringstart];
+   /* if (needle[j] == '\0') return &haystack[stringstart]; */
    for (j = 0; haystack[j] != '\0'; j++) {
+      if (haystack[j] != needle[i]) {
+         stringstart = 0;
+         i = save;
+   }
       if (haystack[j] == needle[i]) {
          stringstart = j;
          save = i;
@@ -109,10 +113,6 @@ for (i = 0; needle[i] != '\0'; i++) {
          i++;
          j++;
       }
-      if (haystack[j] != needle[i]) {
-         stringstart = 0;
-         i = save;
-   }
 }
 }
   return &haystack[stringstart];
