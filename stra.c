@@ -118,9 +118,13 @@ char *Str_search (const char haystack[], const char needle[]) {
          }
       }
 
-else if (needle[i] != haystack[j] && j < lengthh && i < lengthn) {
+else if (needle[i] != haystack[j]) {
+   if (j == lengthh) {
+               stringstart = 0;
+               return (char*) &haystack[stringstart];
+            }
    i = 0;
-   j = stringstart++;
+   j = stringstart;
    stringstart = 0;
 }
 
