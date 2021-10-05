@@ -92,7 +92,6 @@ char *Str_search (const char haystack[], const char needle[]) {
    size_t stringstart = 0;
    size_t i = 0;
    size_t j = 0;
-   size_t save = 0;
 
    assert(haystack != NULL);
    assert(needle != NULL);
@@ -110,6 +109,7 @@ char *Str_search (const char haystack[], const char needle[]) {
 
 else if (needle[i] != haystack[j]) {
    j++;
+   i = 0;
    stringstart = 0;
 }
 
@@ -118,161 +118,3 @@ return &haystack[stringstart];
 }
 
 
-/*
-   for (j = 0; haystack[j] != '\0'; j++) {
-      if (needle[i] == haystack[j]) {
-         stringstart = j;
-         i++;
-         j++;
-         while (needle[i] == haystack[j]) {
-            
-         }
-      }
-   }
-   */
-
-/*
-for (i = 0; needle[i] != '\0'; i++) {
-   for (j = 0; haystack[j] != '\0'; j++) {
-      if (needle[i] == haystack[j]) {
-         stringstart = j;
-         i++;
-         j++;
-         while (needle[i] == haystack[j]) {
-
-         }
-      }
-   }
-}
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-
-for (i = 0; needle[i] != '\0'; i++) {
-   /* if (needle[j] == '\0') return &haystack[stringstart]; */
-   /*
-   if (haystack[j] == '\0') {
-      break;
-   }
-   for (j = 0; haystack[j] != '\0'; j++) {
-      if (haystack[j] != needle[i]) {
-         stringstart = 0;
-         i = 0;
-   }
-      if (haystack[j] == needle[i]) {
-         stringstart = j;
-      } 
-      while (haystack[j] == needle[i] && needle[i] == '\0' && haystack[j] != '\0') {
-         i++;
-         j++;
-      }
-
-}
-}
- return &haystack[stringstart];
-
-}
-*/
-
-
-/*
- while (haystack[i] != '\0' && needle[start] != '\0') {
-      if (haystack[i] == needle[start]) {
-         stringstart = i;
-         start++;
-         i++;
-
-         while (haystack[i] == needle[start] &&  needle[start] != '\0') {
-         if (haystack[i] == '\0') {
-            stringstart = 0;
-            return &haystack[stringstart];
-         }
-         start++;
-         i++;
-         }
-      }
-      
-      if (haystack[i] != needle[start])
-         start = 0;
-         stringstart = 0;
-         i++;
-      }
-      */
-
- 
-
-/*
-   while (haystack[i] != '\0') {
-      j = 0;
-      if (needle[j] != '\0') {
-         return stringstart;
-      }
-      while (needle[j] != '\0') {
-         if (haystack[i] == needle[j]) {
-         stringstart = i;
-         save = i;
-         while (haystack[i] == needle[j] &&  needle[j] != '\0') {
-         j++;
-         i++;
-      }
-         i = save;
-         } else if (haystack[i] != needle[j]) {
-         stringstart = '\0';
-         }
-         j++;
-      }
-      i++;
-   }
-
-*/
-/*
-   while (haystack[i] != '\0' && needle[start] != '\0') {
-      if (haystack[i] == needle[start]) {
-         stringstart = i;
-         start++;
-         i++;
-
-         while (haystack[i] == needle[start] &&  needle[start] != '\0') {
-         if (haystack[i] == '\0') {
-            stringstart = '\0';
-            return stringstart;
-         }
-         start++;
-         i++;
-         }
-      }
-      
-      if (haystack[i] != needle[start])
-         start = 0;
-         stringstart = '\0';
-         i++;
-      }
-   }
-   */
- 
