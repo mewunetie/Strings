@@ -108,13 +108,14 @@ char *Str_search (const char haystack[], const char needle[]) {
          }
       }
 
-else if (needle[i] == haystack[j]) {
+else if (needle[i] != haystack[j]) {
    j++;
    stringstart = 0;
 }
 
+return &haystack[stringstart];
 
-
+}
 
 
 /*
@@ -170,11 +171,12 @@ for (i = 0; needle[i] != '\0'; i++) {
 
 
 
-
+/*
 
 
 for (i = 0; needle[i] != '\0'; i++) {
    /* if (needle[j] == '\0') return &haystack[stringstart]; */
+   /*
    if (haystack[j] == '\0') {
       break;
    }
@@ -196,6 +198,8 @@ for (i = 0; needle[i] != '\0'; i++) {
  return &haystack[stringstart];
 
 }
+*/
+
 
 /*
  while (haystack[i] != '\0' && needle[start] != '\0') {
