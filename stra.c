@@ -50,7 +50,7 @@ char *Str_concat(char pcDest[], const char pcSrc[])
   
    while(pcSrc[i] != '\0') {
       pcDest[location] = pcSrc[i];
-      destlength++;
+      location++;
       i++;
    }
    
