@@ -103,8 +103,8 @@ char Str_search (const char s1[], const char s2[]) {
       else if (s1[i] != s2[start]) {
          start = 0;
          stringstart = '\0';
+         i++;
       }
-      i++;
    }
    
    return stringstart;
