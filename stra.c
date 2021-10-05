@@ -40,21 +40,20 @@ char *Str_concat(char pcDest[], const char pcSrc[])
 {
    size_t destlength;
    size_t i = 0;
-   size_t location;
 
    assert(pcDest != NULL);
    assert(pcSrc != NULL);
 
    destlength = Str_getLength(pcDest);
-   location = destlength - 1;
+
   
    while(pcSrc[i] != '\0') {
-      pcDest[location] = pcSrc[i];
-      location++;
+      pcDest[destlength] = pcSrc[i];
+      destlength++;
       i++;
    }
    
-   pcDest[location] = '\0';
+   pcDest[destlength] = '\0';
    return pcDest;
 }
 
