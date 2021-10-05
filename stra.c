@@ -94,7 +94,7 @@ char Str_search (const char s1[], const char s2[]) {
       if (s1[i] == s2[start]) {
          stringstart = i;
 
-         while (s1[i] == s2[start] && i != '\0' && start != '\0') {
+         while (s1[i] == s2[start] && s1[i] != '\0' && s2[start] != '\0') {
          start++;
          i++;
          }
