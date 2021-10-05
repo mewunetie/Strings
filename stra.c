@@ -40,30 +40,29 @@ char *Str_concat(char pcDest[], const char pcSrc[])
 {
    size_t destlength;
    size_t i = 0;
-   size_t j = 0;
+   size_t location;
 
    assert(pcDest != NULL);
    assert(pcSrc != NULL);
 
    destlength = Str_getLength(pcDest);
-
+   location = destlength - 1;
   
-
    while(pcSrc[i] != '\0') {
-      pcDest[destlength] = pcSrc[i];
+      pcDest[location] = pcSrc[i];
       destlength++;
       i++;
    }
    
-   pcDest[destlength + i - 1] = '\0';
+   pcDest[location + i] = '\0';
    return pcDest;
 }
 
-int Str_compare (const char s1[], const char s2[]){
-   int returnval = 0;
-   int i = 0;
-   int lessthan = -1;
-   int greaterthan = 1;
+size_t Str_compare (const char s1[], const char s2[]){
+   size_t returnval = 0;
+   size_t i = 0;
+   size_t lessthan = -1;
+   size_t greaterthan = 1;
 
    assert(s1 != NULL);
    assert(s2 != NULL);
@@ -84,9 +83,9 @@ int Str_compare (const char s1[], const char s2[]){
 /* go over this, how to ensure that the next char after the first matching is the same?
 consider doing nested loop w if == continue going and else break? */
 char Str_search (const char s1[], const char s2[]) {
-   int stringstart = '\0';
-   int start = 0;
-   int i = 0;
+   size_t stringstart = '\0';
+   size_t start = 0;
+   size_t i = 0;
 
    assert(s1 != NULL);
    assert(s2 != NULL);
