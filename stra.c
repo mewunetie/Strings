@@ -92,13 +92,13 @@ char *Str_search (const char haystack[], const char needle[]) {
    size_t stringstart = 0;
    size_t i = 0;
    size_t j = 0;
-   size_t lengthn = Str_getLength(haystack);
-   size_t lengthh = Str_getLength(needle);
+   size_t lengthh = Str_getLength(haystack);
+   size_t lengthn = Str_getLength(needle);
 
    assert(haystack != NULL);
    assert(needle != NULL);
 
-/*
+
    for (i = 0; i < lengthn; i++) {
        for (j = 0; j < lengthh; j++) {
       if (haystack[j] == needle[i]) {
@@ -107,7 +107,7 @@ char *Str_search (const char haystack[], const char needle[]) {
          j++;
          while (needle[i] == haystack[j] && needle[i] != '\0') {
             if (haystack[j] == '\0') {
-               stringstart = 0;
+               stringstart = lengthh;
                return (char*) &haystack[stringstart];
             }
             i++;
@@ -118,19 +118,19 @@ char *Str_search (const char haystack[], const char needle[]) {
 else if (needle[i] != haystack[j] && haystack[j] != '\0' && needle[i] != '\0') {
    j++;
    i = 0;
-   stringstart = 0;
+   stringstart = lengthh;
 }
 
 return (char*) &haystack[stringstart];
 
    }
 }
-}
-*/
 
 
 
 
+
+/*
  if (needle[i] == haystack[j]) {
          stringstart = j;
          i++;
@@ -153,3 +153,4 @@ else if (needle[i] != haystack[j] && haystack[j] != '\0' && needle[i] != '\0') {
 
 return (char*) &haystack[stringstart];
 }
+*/
