@@ -49,11 +49,12 @@ char *Str_concat(char pcDest[], const char pcSrc[])
   
    while(pcSrc[i] != '\0') {
       pcDest[destlength] = pcSrc[i];
-      destlength++;
-      i++;
+      destlength = destlength + 1;
+      i = i + 1;
    }
    
-   pcDest[destlength + 1] = '\0';
+   pcDest[destlength] = '\0';
+
    return pcDest;
 }
 
