@@ -99,6 +99,9 @@ char Str_search (const char haystack[], const char needle[]) {
 
    while (haystack[i] != '\0') {
       j = 0;
+      if (needle[j] != '\0') {
+         return stringstart;
+      }
       while (needle[j] != '\0') {
          if (haystack[i] == needle[j]) {
          stringstart = i;
@@ -107,8 +110,8 @@ char Str_search (const char haystack[], const char needle[]) {
          j++;
          i++;
       }
+         i = save;
          } else if (haystack[i] != needle[j]) {
-         j = save;
          stringstart = '\0';
          }
          j++;
