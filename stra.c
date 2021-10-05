@@ -98,6 +98,80 @@ char *Str_search (const char haystack[], const char needle[]) {
    assert(needle != NULL);
 
 
+ if (needle[i] == haystack[j]) {
+         stringstart = j;
+         i++;
+         j++;
+         while (needle[i] == haystack[j] && haystack[j] != '\0' && needle[i] != '\0') {
+            i++;
+            j++;
+         }
+      }
+
+else if (needle[i] == haystack[j]) {
+   j++;
+   stringstart = 0;
+}
+
+
+
+
+
+/*
+   for (j = 0; haystack[j] != '\0'; j++) {
+      if (needle[i] == haystack[j]) {
+         stringstart = j;
+         i++;
+         j++;
+         while (needle[i] == haystack[j]) {
+            
+         }
+      }
+   }
+   */
+
+/*
+for (i = 0; needle[i] != '\0'; i++) {
+   for (j = 0; haystack[j] != '\0'; j++) {
+      if (needle[i] == haystack[j]) {
+         stringstart = j;
+         i++;
+         j++;
+         while (needle[i] == haystack[j]) {
+
+         }
+      }
+   }
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 for (i = 0; needle[i] != '\0'; i++) {
    /* if (needle[j] == '\0') return &haystack[stringstart]; */
