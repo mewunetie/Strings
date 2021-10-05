@@ -1,4 +1,3 @@
-
 /*------------------------------------------------------------*/
 /* stra.c */
 /* Author: Misrach Ewunetie */
@@ -10,7 +9,7 @@
 /*----------------------------------------------------------*/
 
 /* ask about knowing which libraries to include in header & how to test while writing code*/
-/*
+
 size_t Str_getLength(const char pcSrc[])
 {
    size_t uLength = 0;
