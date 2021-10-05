@@ -36,7 +36,7 @@ char *Str_copy(char pcDest[], const char pcSrc[])
 return pcDest;
 }
 
-char *Str_concat(char pcDest[], const char pcSrc[])
+char *Str_concat(const char pcDest[], const char pcSrc[])
 {
    size_t destlength;
    size_t i = 0;
@@ -49,8 +49,8 @@ char *Str_concat(char pcDest[], const char pcSrc[])
   
    while(pcSrc[i] != '\0') {
       pcDest[destlength] = pcSrc[i];
-      destlength = destlength + 1;
-      i = i + 1;
+      destlength++;
+      i++;
    }
    
    pcDest[destlength] = '\0';
