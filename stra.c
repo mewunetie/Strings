@@ -90,12 +90,26 @@ size_t Str_compare (const char s1[], const char s2[]){
 consider doing nested loop w if == continue going and else break? */
 char Str_search (const char haystack[], const char needle[]) {
    size_t stringstart = '\0';
-   size_t start = 0;
    size_t i = 0;
+   size_t j = 0;
 
    assert(haystack != NULL);
    assert(needle != NULL);
 
+   while (haystack[i] != '\0') {
+      i++;
+      while (needle[j] != '\0') {
+         j++;
+         if (haystack[i] == needle[j]) {
+         stringstart = i;
+         } else if (haystack[i] != needle[j]) {
+         stringstart = '\0';
+         }
+      }
+   }
+
+
+/*
    while (haystack[i] != '\0' && needle[start] != '\0') {
       if (haystack[i] == needle[start]) {
          stringstart = i;
@@ -109,16 +123,15 @@ char Str_search (const char haystack[], const char needle[]) {
          }
          start++;
          i++;
-
          }
       }
       
-      else if (haystack[i] != needle[start]) {
+      if (haystack[i] != needle[start])
          start = 0;
          stringstart = '\0';
          i++;
       }
    }
-   
+   */
    return stringstart;
 }
