@@ -19,7 +19,15 @@ size_t Str_getLength(const char *pcSrc)
 
 char *Str_copy(char *pcDest, const char *pcSrc)
 {
-   
+   char *p = pcDest;
+
+   assert(pcSrc != NULL);
+   assert(pcDest != NULL);
+
+   while (*p++ = *pcSrc++)
+   ;
+
+   return pcDest;
 }
 
 char *Str_concat(char *s1, const char *s2) {
@@ -43,11 +51,36 @@ char *Str_concat(char *s1, const char *s2) {
    return s1;
 }
 
-/* int Str_compare(const char *s1, const char *s2) {
+int Str_compare(const char *s1, const char *s2) {
+   char *p = s1;
+   size_t returnval = 0;
+   size_t lessthan = -1;
+   size_t greaterthan = 1;
 
+   assert(s1 != NULL);
+   assert(s2 != NULL);
+
+    while (*p != '\0' || s2 != '\0') {
+       if (*p == '\0' && s2 != '\0') {
+         return lessthan;
+       }
+        if (*p != '\0' && s2 == '\0') {
+          return greaterthan;
+       }
+        if (*p > s2) {
+          return lessthan;
+       }
+        if (*p < s2) {
+          return greaterthan;
+       }
+      p++;
+      s2++;
+   }
+
+   return returnval;
 }
 
-char Str_search(const char *s1, const char *s2) {
+/* char Str_search(const char *s1, const char *s2) {
 
 }
 */
