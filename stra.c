@@ -88,7 +88,7 @@ size_t Str_compare (const char s1[], const char s2[]){
 
 /* go over this, how to ensure that the next char after the first matching is the same?
 consider doing nested loop w if == continue going and else break? */
-char Str_search (const char haystack[], const char needle[]) {
+char *Str_search (const char haystack[], const char needle[]) {
    char stringstart = '\0';
    size_t i = 0;
    size_t j = 0;
@@ -99,7 +99,7 @@ char Str_search (const char haystack[], const char needle[]) {
 
 for (i = 0; haystack[i] != '\0'; i++) {
    save = i;
-   if (needle[j] == '\0') return stringstart;
+   if (needle[j] == '\0') return &haystack[stringstart];
    for (j = 0; needle[j] != '\0'; j++) {
       if (haystack[i] == needle[j]) {
          stringstart = i;
@@ -167,5 +167,5 @@ for (i = 0; haystack[i] != '\0'; i++) {
       }
    }
    */
-   return stringstart;
+   return &haystack[stringstart];
 }
