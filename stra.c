@@ -107,7 +107,7 @@ char *Str_search (const char haystack[], const char needle[]) {
          }
       }
 
-else if (needle[i] != haystack[j]) {
+else if (needle[i] != haystack[j] && haystack[j] != '\0' && needle[i] != '\0') {
    j++;
    i = 0;
    stringstart = 0;
