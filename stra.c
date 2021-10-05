@@ -107,6 +107,7 @@ for (i = 0; haystack[i] != '\0'; i++) {
       } 
       while (haystack[i] == needle[j]) {
          i++;
+         j++;
       }
       if (haystack[i] != needle[j]) {
          stringstart = '\0';
