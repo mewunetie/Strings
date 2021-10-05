@@ -92,11 +92,14 @@ char *Str_search (const char haystack[], const char needle[]) {
    size_t stringstart = 0;
    size_t i = 0;
    size_t j = 0;
-   size_t lengthh = Str_getLength(haystack);
-   size_t lengthn = Str_getLength(needle);
+   size_t lengthh;
+   size_t lengthn;
 
    assert(haystack != NULL);
    assert(needle != NULL);
+
+   lengthh = Str_getLength(haystack);
+   lengthn = Str_getLength(needle);
 
 
    for (i = 0; i < lengthn; i++) {
