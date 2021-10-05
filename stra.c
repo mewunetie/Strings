@@ -90,7 +90,7 @@ char Str_search (const char s1[], const char s2[]) {
    assert(s1 != NULL);
    assert(s2 != NULL);
 
-   while (s1[i] != '\0' && s2[i] != '\0') {
+   while (s1[i] != '\0' && s2[start] != '\0') {
       if (s1[i] == s2[start]) {
          stringstart = i;
 
