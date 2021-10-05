@@ -101,17 +101,20 @@ consider doing nested loop w if == continue going and else break? */char *Str_se
   n = Str_getLength(needle);
  
 
-for (int i = 0; i < h; i++) {
+for (i = 0; i < h; i++) {
     j = 1;
     if (haystack[i] == needle[0]) {
         stringstart = i;
         j++;
     }
-    if (haystack[i] == needle[j]) {
+    if (haystack[i] == needle[j] && needle[j] != NULL) {
         j++;
     }
     if (haystack[i] != needle[j]) {
         j = stringstart + 1;
+        stringstart = 0;
     }
-   }
+}
+
+   return (char*) &haystack[stringstart];
 }
