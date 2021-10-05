@@ -111,7 +111,7 @@ for (i = 0; i < h; i++) {
         j++;
     }
     if (haystack[i] != needle[j]) {
-        j = stringstart + 1;
+        i = stringstart;
         stringstart = 0;
     }
 }
