@@ -137,7 +137,7 @@ return (char*) &haystack[stringstart];
          j++;
          while (needle[i] == haystack[j] && needle[i] != '\0') {
             if (haystack[j] == '\0') {
-               stringstart = 0;
+               stringstart = Str_getLength(haystack);
                return (char*) &haystack[stringstart];
             }
             i++;
@@ -148,7 +148,7 @@ return (char*) &haystack[stringstart];
 else if (needle[i] != haystack[j] && haystack[j] != '\0' && needle[i] != '\0') {
    j++;
    i = 0;
-   stringstart = 0;
+   stringstart = Str_getLength(haystack);
 }
 
 return (char*) &haystack[stringstart];
