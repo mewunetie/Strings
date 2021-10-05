@@ -114,7 +114,7 @@ char *Str_search (const char haystack[], const char needle[]) {
             j++;
          }
          if (i == lengthn && j == lengthn) {
-            return (char*) &haystack[stringstart]
+            return (char*) &haystack[stringstart];
          }
       }
 
