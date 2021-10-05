@@ -99,7 +99,7 @@ char Str_search (const char haystack[], const char needle[]) {
 
 for (i = 0; haystack[i] != '\0'; i++) {
    save = i;
-   if (needle[j] != '\0') return stringstart;
+   if (needle[j] == '\0') return stringstart;
    for (j = 0; needle[j] != '\0'; j++) {
       if (haystack[i] == needle[j]) {
          stringstart = i;
