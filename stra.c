@@ -113,7 +113,7 @@ for (i = 0; haystack[i] != '\0'; i++) {
          stringstart = '\0';
          i = save;
    }
-   
+}
 }
 
 
@@ -168,5 +168,4 @@ for (i = 0; haystack[i] != '\0'; i++) {
    }
    */
    return stringstart;
-}
 }
