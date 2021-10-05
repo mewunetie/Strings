@@ -125,6 +125,7 @@ return (char*) &haystack[stringstart];
 
    }
 }
+}
 
 
 
