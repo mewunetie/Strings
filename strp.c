@@ -2,7 +2,7 @@
 /* strp.c */
 /* Author: Misrach Ewunetie */
 /*------------------------------------------------------------*/
-#include "str.h"
+#include "strp.h"
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
