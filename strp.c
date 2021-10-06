@@ -90,7 +90,7 @@ char *Str_search(const char *haystack, const char *needle) {
    const char *pointer;
    const char *start;
    size_t stringstart = 0;
-   size_t lengthofhaystack = 0;
+   char *lengthofhaystack = 0;
 
    assert(haystack != NULL);
    assert(needle != NULL);
