@@ -97,31 +97,25 @@ consider doing nested loop w if == continue going and else break? */char *Str_se
    assert(needle != NULL);
 
 
+if (needle[i] == haystack[j]) {
+         stringstart = j;
+         i++;
+         j++;
+         while (needle[i] == haystack[j] && needle[i] != '\0') {
+            if (haystack[j] == '\0') {
+               stringstart = 0;
+               return (char*) &haystack[stringstart];
+            }
+            i++;
+            j++;
+         }
+      }
 
-while (haystack[i] != '\0') {
-if (haystack[i] == needle[0]) {
-        stringstart = i;
-        lastequal = 1;
-
-while (haystack[i] == needle[j] && needle[j] != '\0') {
-        lastequal = 1;
-        i++;
-        j++;
-   if (needle[j] == '\0') {
-   return (char*) &haystack[stringstart];
-   }
-}
-}
-
-if (haystack[i] != needle[0]) {
-       if (lastequal == 1) {
-        i = stringstart;
-}
-        lastequal = 0;
-        stringstart = 0;
-        i++;
- }
+else if (needle[i] != haystack[j] && haystack[j] != '\0' && needle[i] != '\0') {
+   j++;
+   i = 0;
+   stringstart = 0;
 }
 
-   return '\0';
+return (char*) &haystack[stringstart];
 }
