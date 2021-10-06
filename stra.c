@@ -100,6 +100,7 @@ consider doing nested loop w if == continue going and else break? */char *Str_se
   h = Str_getLength(haystack);
 
 
+while (haystack[i] != '\0') {
 if (haystack[i] == needle[0]) {
         stringstart = i;
         lastequal = 1;
@@ -109,6 +110,9 @@ while (haystack[i] == needle[j] && needle[j] != NULL) {
         i++;
         j++;
 }
+if (lastequal == 1 && needle[j] != NULL) {
+   return (char*) &haystack[stringstart];
+}
 if (haystack[i] != needle[0]) {
        if (lastequal == 1) {
         i = stringstart;
@@ -117,6 +121,7 @@ if (haystack[i] != needle[0]) {
         stringstart = 0;
         i++;
  }
+}
 
-   return (char*) &haystack[stringstart];
+   return NULL;
 }
