@@ -88,40 +88,47 @@ size_t Str_compare (const char s1[], const char s2[]){
 
 /* go over this, how to ensure that the next char after the first matching is the same?
 consider doing nested loop w if == continue going and else break? */char *Str_search (const char haystack[], const char needle[]) {
-   size_t stringstart = 0;
+  size_t stringstart = 0;
    size_t i = 0;
-   size_t j;
-   size_t lastequal = 0;
+   size_t j = 0;
+   size_t lengthh;
+   size_t lengthn;
 
    assert(haystack != NULL);
    assert(needle != NULL);
 
+   lengthh = Str_getLength(haystack);
+   lengthn = Str_getLength(needle);
 
 
-while (haystack[i] != '\0') {
-if (haystack[i] == needle[0]) {
-        stringstart = i;
-        lastequal = 1;
+  /* for (i = 0; i < lengthn; i++) { */
+for (j = 0; j < lengthh; j++) {
+      if (haystack[j] == needle[i]) {
+         stringstart = j;
+         i++;
+         j++;
+         while (needle[i] == haystack[j]) {
+            if (needle[i] == '/0') {
+            return (char*) &haystack[stringstart];
+         }
+            if (haystack[j] == '/0') {
+               stringstart = 0;
+               return (char*) &haystack[stringstart];
+            }
+            i++;
+            j++;
+         }
+    } 
 
-while (haystack[i] == needle[j] && needle[j] != '\0') {
-        lastequal = 1;
-        i++;
-        j++;
-   if (needle[j] == '\0') {
-   return (char*) &haystack[stringstart];
+else if (needle[i] != haystack[j]) {
+   if (haystack[j] == '/0') {
+               stringstart = 0;
+               return (char*) &haystack[stringstart];
+            }
+   i = 0;
+   j = stringstart;
+   stringstart = 0;
+}
    }
-}
-}
-
-if (haystack[i] != needle[0]) {
-       if (lastequal == 1) {
-        i = stringstart;
-}
-        lastequal = 0;
-        stringstart = 0;
-        i++;
- }
-}
-
-   return '\0';
+return (char*) &haystack[stringstart];
 }
