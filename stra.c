@@ -91,28 +91,28 @@ consider doing nested loop w if == continue going and else break? */char *Str_se
    size_t stringstart = 0;
    size_t i = 0;
    size_t j;
-   size_t h;
    size_t lastequal = 0;
 
    assert(haystack != NULL);
    assert(needle != NULL);
 
-  h = Str_getLength(haystack);
 
 
 while (haystack[i] != '\0') {
 if (haystack[i] == needle[0]) {
         stringstart = i;
         lastequal = 1;
-}
+
 while (haystack[i] == needle[j] && needle[j] != NULL) {
         lastequal = 1;
         i++;
         j++;
-}
-if (lastequal == 1 && needle[j] != NULL) {
+   if (needle[j] == NULL) {
    return (char*) &haystack[stringstart];
+   }
 }
+}
+
 if (haystack[i] != needle[0]) {
        if (lastequal == 1) {
         i = stringstart;
