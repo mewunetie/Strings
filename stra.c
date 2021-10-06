@@ -90,7 +90,7 @@ size_t Str_compare (const char s1[], const char s2[]){
 consider doing nested loop w if == continue going and else break? */char *Str_search (const char haystack[], const char needle[]) {
    size_t stringstart = 0;
    size_t i = 0;
-   size_t j = 0;
+   size_t j;
    size_t lastequal = 0;
 
    assert(haystack != NULL);
@@ -98,29 +98,30 @@ consider doing nested loop w if == continue going and else break? */char *Str_se
 
 
 
-if (needle[i] == haystack[j]) {
-         stringstart = j;
-         i++;
-         j++;
-         while (needle[i] == haystack[j] && needle[i] != '\0') {
-            if (haystack[j] == '\0') {
-               return (char*) &haystack[Str_getLength(haystack)];
-            }
-            i++;
-            j++;
-         }
-      if (needle[i] != '\0') {
-       return (char*) &haystack[stringstart];
-      }
+while (haystack[i] != '\0') {
+if (haystack[i] == needle[0]) {
+        stringstart = i;
+        lastequal = 1;
+
+while (haystack[i] == needle[j] && needle[j] != '\0') {
+        lastequal = 1;
+        i++;
+        j++;
+   if (needle[j] == '\0') {
+   return (char*) &haystack[stringstart];
+   }
+}
 }
 
-if (needle[i] != haystack[j] && haystack[j] != '\0' && needle[i] != '\0') {
-   j = stringstart;
-   j++;
-   i = 0;
+if (haystack[i] != needle[0]) {
+       if (lastequal == 1) {
+        i = stringstart;
+}
+        lastequal = 0;
+        stringstart = 0;
+        i++;
+ }
 }
 
-if (haystack[j] == '\0') {
-   return NULL;
-}
+   return '\0';
 }
