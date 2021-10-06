@@ -92,7 +92,7 @@ consider doing nested loop w if == continue going and else break? */char *Str_se
    size_t i = 0;
    size_t j;
    size_t h;
-   size_t n;
+   size_t lastequal = 0;
 
    assert(haystack != NULL);
    assert(needle != NULL);
@@ -102,18 +102,19 @@ consider doing nested loop w if == continue going and else break? */char *Str_se
  
 
 for (i = 0; i < h; i++) {
-   stringstart = i;
     j = 1;
     if (haystack[i] == needle[0]) {
         stringstart = i;
-        j++;
+        lastequal = 1;
     }
-    while (haystack[i] == needle[j] && needle[j] != NULL) {
+    if (haystack[i] == needle[j] && needle[j] != '/0') {
+       lastequal = 1;
         j++;
-        i++;
     }
     if (haystack[i] != needle[j]) {
+       if (lastequal == 1) {
         i = stringstart;
+    }
         stringstart = 0;
     }
 }
