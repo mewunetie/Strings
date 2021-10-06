@@ -70,8 +70,8 @@ size_t Str_compare(const char *s1, const char *s2) {
         if (*p < s2) {
           return greaterthan;
        }
-      p++;
-      s2++;
+      *p++;
+      *s2++;
    }
 
    return returnval;
