@@ -97,7 +97,7 @@ char *Str_search(const char *haystack, const char *needle) {
 
    p1 = haystack;
    p2 = needle;
- 
+   lengthofhaystack = Str_getLength(*needle);
 
 while(*p1 != '\0') {
 
