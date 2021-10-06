@@ -96,6 +96,7 @@ char *Str_search (const char haystack[], const char needle[]) {
    size_t haystacklength;
    size_t needlelength;
    size_t index = 0;
+   char ch = NULL;
 
 
    
@@ -109,17 +110,25 @@ char *Str_search (const char haystack[], const char needle[]) {
       return NULL;
    }
 
+// where remaining letters in haystack < needle
+// don't wanna go one by one if we face caccac match cacs
+// if there's a letter that matches with first letter of needle - save in ch
+// properly get to null
 
    while (haystack[index] != '/0') {
       if (needle[0] == haystack[index]) {
          found = 1;
-         for (i = index; i < haystacklength; i++) {
-            if (haystack[index] != needle[i - index]) {
+         ch = NULL;
+         for (i = 0; i < needlelength; i++) {
+            if (haystack[i] == needle[0]) {
+               ch = i;
+            }
+            if (haystack[index + i] != needle[i]) {
                found = 0;
+               break;
             }
             else {
                found = 1;
-               break;
             }
          }
          if (found) {
