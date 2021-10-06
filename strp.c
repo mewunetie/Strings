@@ -87,7 +87,7 @@ size_t Str_compare(const char *s1, const char *s2) {
 char *Str_search(const char *haystack, const char *needle) {
    const char *p1;
    const char *p2;
-   char *pointer;
+   const char *pointer;
    size_t stringstart = 0;
    size_t lastequal = 0;
 
