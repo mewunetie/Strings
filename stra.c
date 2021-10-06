@@ -102,7 +102,6 @@ char *Str_search (const char haystack[], const char needle[]) {
   h = Str_getLength(haystack);
   n = Str_getLength(needle);
  
-// go through haystack until a char in haystack equals the first char in needle
 for (i = 0; i < h; i++) {
     if (haystack[i] == needle[0]) {
         stringstart = i;
@@ -123,6 +122,10 @@ for (i = 0; i < h; i++) {
          }
          j = 0;
       }
+}
+
+return NULL;
+
 }
 
 
