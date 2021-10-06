@@ -113,6 +113,7 @@ for (i = 0; i < h; i++) {
        if (lastequal == 1) {
         i = stringstart;
     }
+         lastequal = 0;
         stringstart = 0;
     }
 }
