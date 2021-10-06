@@ -103,21 +103,21 @@ consider doing nested loop w if == continue going and else break? */char *Str_se
 
 for (i = 0; i < lengthn; i++) { 
 for (j = 0; j < lengthh; j++) {
-      if (Str_compare(haystack[j], needle[i]) == 0) {
+      if (haystack[j] == needle[i]) {
          stringstart = j;
          i++;
          j++;
-         while (Str_compare(haystack[j], needle[i]) == 0) {
-            if (needle[i] == '/0') {
+         while ((haystack[j] == needle[i])) {
+            i++;
+            j++;
+         }
+          if (needle[i] == '/0') {
             return (char*) &haystack[stringstart];
          }
             if (haystack[j] == '/0') {
                stringstart = lengthh;
                return (char*) &haystack[stringstart];
             }
-            i++;
-            j++;
-         }
     } 
 
 else if (needle[i] != haystack[j]) {
