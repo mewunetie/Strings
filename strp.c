@@ -84,10 +84,37 @@ size_t Str_compare(const char *s1, const char *s2) {
 }
 
 
-char *Str_search(const char *s1, const char *s2) {
+char *Str_search(const char *haystack, const char *needle) {
+   const char *p1;
+   const char *p2;
+   char *pointer;
+   size_t stringstart = 0;
+   size_t lastequal = 0;
 
-   assert(s1 != NULL);
-   assert(s2 != NULL);
+   assert(haystack != NULL);
+   assert(needle != NULL);
 
-   return NULL;
+   p1 = haystack;
+   p2 = needle;
+
+while(*p1 != '\0') {
+    if (*p1 == *p2) {
+        pointer = *p1;
+       
+    }
+    while (*p1 == *p2 && *p1 != '\0' && *p2 != '\0') {
+        p1++;
+        p2++;
+}
+      if (*p2 != '\0') {
+         return pointer;
+      }
+
+      if (*p1 != *p2){
+         *p2 == needle;
+      }
+}
+
+return NULL;
+
 }
