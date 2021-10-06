@@ -37,17 +37,13 @@ char *Str_concat(char *s1, const char *s2) {
    assert(s1 != NULL);
    assert(s2 != NULL);
 
-   while (*p != '\0') {
+   while (*p) {
       p++;
    }
 
-    while (s2 != '\0') {
-      *p = *s2;
-      p++;
-      s2++;
-   }
-
-   *p = '\0';
+    while (*p++ = *s2++) 
+     ;
+   
 
    return s1;
 }
