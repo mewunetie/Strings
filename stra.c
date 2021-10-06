@@ -102,6 +102,7 @@ consider doing nested loop w if == continue going and else break? */char *Str_se
 
 
 for (i = 0; i < lengthn; i++) { 
+i = 0;
 for (j = 0; j < lengthh; j++) {
       if (haystack[j] == needle[i]) {
          stringstart = j;
@@ -125,8 +126,6 @@ else if (needle[i] != haystack[j]) {
                stringstart = lengthh;
                return (char*) &haystack[stringstart];
             }
-   i = 0;
-   j = stringstart;
    stringstart = 0;
 }
    }
