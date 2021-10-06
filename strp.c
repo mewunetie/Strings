@@ -90,13 +90,14 @@ char *Str_search(const char *haystack, const char *needle) {
    const char *pointer;
    const char *start;
    size_t stringstart = 0;
-   size_t lastequal = 0;
+   size_t lengthofhaystack = 0;
 
    assert(haystack != NULL);
    assert(needle != NULL);
 
    p1 = haystack;
    p2 = needle;
+   lengthofhaystack = Str_getLength(*haystack);
 
 while(*p1 != '\0') {
 
@@ -113,7 +114,7 @@ while(*p1 != '\0') {
       }
 
       if (*p1 != *p2){
-         p2 = 0;
+         p2 = p2 - lengthofhaystack;
       }
 }
 
