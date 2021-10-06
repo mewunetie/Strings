@@ -99,7 +99,7 @@ char *Str_search(const char *haystack, const char *needle) {
 
 while(*p1 != '\0') {
     if (*p1 == *p2) {
-        pointer = *p1;
+        pointer = p1;
        
     }
     while (*p1 == *p2 && *p1 != '\0' && *p2 != '\0') {
@@ -111,7 +111,7 @@ while(*p1 != '\0') {
       }
 
       if (*p1 != *p2){
-         *p2 = needle;
+         p2 = needle;
       }
 }
 
