@@ -98,8 +98,6 @@ consider doing nested loop w if == continue going and else break? */char *Str_se
    assert(needle != NULL);
 
   h = Str_getLength(haystack);
-  n = Str_getLength(needle);
- 
 
 for (i = 0; i < h; i++) {
     j = 1;
