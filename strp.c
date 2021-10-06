@@ -114,7 +114,7 @@ while(*p1 != '\0') {
       }
 
       if (*p1 != *p2){
-         p2 = p2 - lengthofhaystack;
+         return NULL;
       }
 }
 
