@@ -99,21 +99,23 @@ consider doing nested loop w if == continue going and else break? */char *Str_se
 
   h = Str_getLength(haystack);
 
+
 for (i = 0; i < h; i++) {
-    j = 1;
-    if (haystack[i] == needle[0]) {
+   j = 0;
+    if (haystack[i] == needle[j]) {
         stringstart = i;
         lastequal = 1;
     }
-    if (haystack[i] == needle[j] && needle[j] != '/0') {
-       lastequal = 1;
+    while (haystack[i] == needle[j] && needle[j] != '/0') {
+        lastequal = 1;
+        i++;
         j++;
     }
     if (haystack[i] != needle[j]) {
        if (lastequal == 1) {
         i = stringstart;
     }
-         lastequal = 0;
+        lastequal = 0;
         stringstart = 0;
     }
 }
