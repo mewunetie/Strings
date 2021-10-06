@@ -87,50 +87,42 @@ size_t Str_compare (const char s1[], const char s2[]){
 }
 
 /* go over this, how to ensure that the next char after the first matching is the same?
-consider doing nested loop w if == continue going and else break? */char *Str_search (const char haystack[], const char needle[]) {
-  size_t stringstart = 0;
+consider doing nested loop w if == continue going and else break? */
+char *Str_search (const char haystack[], const char needle[]) {
+   size_t stringstart = 0;
    size_t i = 0;
    size_t j = 0;
-   size_t lengthh;
-   size_t lengthn;
+   size_t boolean = 0;
+   size_t h;
+   size_t n;
 
    assert(haystack != NULL);
    assert(needle != NULL);
 
-   lengthh = Str_getLength(haystack);
-   lengthn = Str_getLength(needle);
-
-
-for (i = 0; i < lengthn; i++) { 
-i = 0;
-for (j = 0; j < lengthh; j++) {
-      if (haystack[j] == needle[i]) {
-         stringstart = j;
-         i++;
-         j++;
+  h = Str_getLength(haystack);
+  n = Str_getLength(needle);
+ 
+// go through haystack until a char in haystack equals the first char in needle
+for (i = 0; i < h; i++) {
+    if (haystack[i] == needle[0]) {
+        stringstart = i;
+        boolean = 1;
+    }
+    while (haystack[i] == needle[j] && needle[j] != '/0' && haystack[i] != '/0') {
+        j++;
+        i++;
+         boolean = 1;
+}
+      if (needle[j] == '/0') {
+         return (char *) & haystack[stringstart];
       }
-         while ((haystack[j] == needle[i])) {
-            i++;
-            j++;
-         }
-          if (needle[i] == '/0') {
-            return (char*) &haystack[stringstart];
-         }
-            if (haystack[j] == '/0') {
-               stringstart = lengthh;
-               return (char*) &haystack[stringstart];
-            }
-    
 
-if (needle[i] != haystack[j]) {
-   if (haystack[j] == '/0') {
-               stringstart = lengthh;
-               return (char*) &haystack[stringstart];
-            }
-   stringstart = 0;
-}
-   }
+      if (haystack[i] != needle[j]){
+         if (boolean = 1) {
+            i = stringstart;
+         }
+         j = 0;
+      }
 }
 
-return NULL;
-}
+

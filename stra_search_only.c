@@ -12,6 +12,7 @@ char *Str_search (const char haystack[], const char needle[]) {
    size_t stringstart = 0;
    size_t i = 0;
    size_t j = 0;
+   size_t boolean = 0;
    size_t h;
    size_t n;
 
@@ -23,18 +24,32 @@ char *Str_search (const char haystack[], const char needle[]) {
  
 // go through haystack until a char in haystack equals the first char in needle
 for (i = 0; i < h; i++) {
-    j = 1;
     if (haystack[i] == needle[0]) {
         stringstart = i;
-        j++;
+        boolean = 1;
     }
-    if (haystack[i] == needle[j]) {
+    while (haystack[i] == needle[j] && needle[j] != '/0' && haystack[i] != '/0') {
         j++;
-    }
+        i++;
+         boolean = 1;
+}
+      if (needle[j] == '/0') {
+         return (char *) & haystack[stringstart];
+      }
+
+      if (haystack[i] != needle[j]){
+         if (boolean = 1) {
+            i = stringstart;
+         }
+         j = 0;
+      }
+}
+
+
+
     if (haystack[i] != needle[j]) {
         j = stringstart + 1;
     }
-}
 
 
 
