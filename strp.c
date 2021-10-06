@@ -87,37 +87,58 @@ size_t Str_compare(const char *s1, const char *s2) {
 char *Str_search(const char *haystack, const char *needle) {
    const char *p1;
    const char *p2;
-   const char *pointer;
+   const char *index;
    const char *start;
+   size_t found = 0;
    size_t stringstart = 0;
+   size_t lengthofhaystack;
    size_t lengthofneedle;
 
    assert(haystack != NULL);
    assert(needle != NULL);
-
    p1 = haystack;
+   index = haystack;
    p2 = needle;
    lengthofneedle = Str_getLength(needle);
+   lengthofhaystack = Str_getLength(haystack);
 
-while(*p1 != '\0') {
+    if (lengthofneedle > lengthofhaystack) {
+      return NULL;
+   }
 
-    if (*p1 == *p2) {
-        pointer = p1;
-       
-    }
-    while (*p1 == *p2 && *p1 != '\0' && *p2 != '\0') {
-        p1++;
-        p2++;
-}
-      if (*p2 != '\0') {
-         return pointer;
+
+   while (*index != '/0') {
+      if (*p1 == *p2) {
+         found = 1;
+         while (*p2 != '/0') {
+            if (*p1 != *p2) {
+               found = 0;
+               break;
+            }
+            else {
+               found = 1;
+            }
+         }
+         if (found) {
+            return index;
+         }
       }
-
-      if (*p1 != *p2){
-         p2 - (lengthofneedle;
+      else {
+         index++;
       }
+   }
+
+   return NULL;
+   
 }
 
-return NULL;
 
-}
+
+
+
+
+
+
+
+
+   
