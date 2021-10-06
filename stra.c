@@ -111,7 +111,7 @@ char *Str_search (const char haystack[], const char needle[]) {
    }
 
 /* go through haystack until one index is equal to the first index of needle */
-   while (haystack[index] != '/0') {
+   while (haystack[index] != '\0') {
 
       /* if equal character is found, set boolean equal to true (1) and iterate through until the end of the needle */
       if (needle[0] == haystack[index]) {
