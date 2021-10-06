@@ -1,9 +1,9 @@
 /*--------------------------------------------------------------------*/
 /* replace.c                                                          */
-/* Author: ???                                                        */
+/* Author: Misrach Ewunetie                                           */
 /*--------------------------------------------------------------------*/
 
-#include "str.h"
+#include <string.h>
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
@@ -20,8 +20,33 @@
 static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
-   /* Insert your code here. */
+   char *p;
+   char *iterator;
+
+   size_t length = strlen(*pcFrom);
+
+   if (*pcFrom == '\0') {
+      while (*pcLine) {
+         printf(*pcLine);
+         pcLine++;
+      }
+   }
+
+   /* get first occurance of *pcForm - address and then print out all chars before hand, print out pcTo and the get the length of *pcForm and iterate over that portion using iterator, continue through with
+   the rest */
+   p = pcLine;
+   
+   while (p < strlen(*p)) {
+   iterator = strstr(*pcLine, *pcFrom);
+   while (p < iterator) {
+      printf(*p);
+      p++;
+   }
+   iterator += length;
+   printf(*pcTo);
 }
+}
+
 
 /*--------------------------------------------------------------------*/
 
@@ -55,8 +80,11 @@ int main(int argc, char *argv[])
    pcFrom = argv[1];
    pcTo = argv[2];
 
-   while (fgets(acLine, MAX_LINE_SIZE, stdin) != NULL)
-      /* Insert your code here. */
+   while (fgets(acLine, MAX_LINE_SIZE, stdin) != NULL) {
+      if (argv[1] == '\0') {
+         printf(stdin);
+      }
+   }
 
    fprintf(stderr, "%lu replacements\n", (unsigned long)uReplaceCount);
    return 0;

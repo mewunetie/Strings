@@ -31,21 +31,21 @@ char *Str_copy(char *pcDest, const char *pcSrc)
    return pcDest;
 }
 
-char *Str_concat(char *s1, const char *s2) {
-   char *p = s1;
+char *Str_concat(char *pcDest, const char *pcSrc) {
+   char *p = pcDest;
 
-   assert(s1 != NULL);
-   assert(s2 != NULL);
+   assert(pcDest != NULL);
+   assert(pcSrc != NULL);
 
    while (*p) {
       p++;
    }
 
-    while (*p++ = *s2++) 
+    while (*p++ = *pcSrc++) 
      ;
    
 
-   return s1;
+   return pcDest;
 }
 
 size_t Str_compare(const char *s1, const char *s2) {
@@ -88,17 +88,17 @@ char *Str_search(const char *haystack, const char *needle) {
    const char *p1;
    const char *p2;
    const char *index;
-   const char *start;
    size_t found = 0;
-   size_t stringstart = 0;
    size_t lengthofhaystack;
    size_t lengthofneedle;
 
    assert(haystack != NULL);
    assert(needle != NULL);
+
    p1 = haystack;
    index = haystack;
    p2 = needle;
+   
    lengthofneedle = Str_getLength(needle);
    lengthofhaystack = Str_getLength(haystack);
 
@@ -120,7 +120,7 @@ char *Str_search(const char *haystack, const char *needle) {
             }
          }
          if (found) {
-            return index;
+            return (char*)index;
          }
       }
       else {

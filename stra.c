@@ -8,8 +8,7 @@
 #include <stdlib.h>
 /*----------------------------------------------------------*/
 
-/* ask about knowing which libraries to include in header & how to test while writing code*/
-
+/* increment a variable until null char is reached */
 size_t Str_getLength(const char pcSrc[])
 {
    size_t uLength = 0;
@@ -21,6 +20,8 @@ size_t Str_getLength(const char pcSrc[])
    return uLength;
 }
 
+
+/* set the indices of pcDest equal to pcSrc until the entire string is in pcDest */
 char *Str_copy(char pcDest[], const char pcSrc[])
 {
    size_t i = 0;
@@ -36,6 +37,7 @@ char *Str_copy(char pcDest[], const char pcSrc[])
 return pcDest;
 }
 
+/* set the indices after all of the chars of pcDest equal to pcSrc until the entire string is in pcDest */
 char *Str_concat(char pcDest[], const char pcSrc[])
 {
    size_t destlength;
@@ -58,6 +60,7 @@ char *Str_concat(char pcDest[], const char pcSrc[])
    return pcDest;
 }
 
+/* check whether each char of both strings s1 and s2 are equal, until finding one that isn't. then, return -1, 1, or 0 depending on their equality. */
 size_t Str_compare (const char s1[], const char s2[]){
    size_t returnval = 0;
    size_t i = 0;
@@ -86,17 +89,13 @@ size_t Str_compare (const char s1[], const char s2[]){
     return returnval;
 }
 
-/* go over this, how to ensure that the next char after the first matching is the same?
-consider doing nested loop w if == continue going and else break? */
+/*  */
 char *Str_search (const char haystack[], const char needle[]) {
-   size_t stringstart = 0;
    size_t i = 0;
-   size_t j = 0;
    size_t found = 0;
    size_t haystacklength;
    size_t needlelength;
    size_t index = 0;
-   char ch = NULL;
 
 
    
@@ -106,23 +105,21 @@ char *Str_search (const char haystack[], const char needle[]) {
    haystacklength = Str_getLength(haystack);
    needlelength = Str_getLength(needle);
 
+/*check whether needle is greater than haystack */
    if (needlelength > haystacklength) {
       return NULL;
    }
 
-// where remaining letters in haystack < needle
-// don't wanna go one by one if we face caccac match cacs
-// if there's a letter that matches with first letter of needle - save in ch
-// properly get to null
-
+/* go through haystack until one index is equal to the first index of needle */
    while (haystack[index] != '/0') {
+
+      /* if equal character is found, set boolean equal to true (1) and iterate through until the end of the needle */
       if (needle[0] == haystack[index]) {
          found = 1;
-         ch = NULL;
          for (i = 0; i < needlelength; i++) {
-            if (haystack[i] == needle[0]) {
-               ch = i;
-            }
+
+            /* if characters aren't equal, break out of for loop in order to continue iterating to see if any chars are equal to first char of needle */
+
             if (haystack[index + i] != needle[i]) {
                found = 0;
                break;
@@ -131,6 +128,7 @@ char *Str_search (const char haystack[], const char needle[]) {
                found = 1;
             }
          }
+         /* once out of the for loop and at the end of the needle, if the last chars were equal, return the index of the first occurance of the first char of needle in haystack */
          if (found) {
             return &haystack[index];
          }
@@ -140,6 +138,7 @@ char *Str_search (const char haystack[], const char needle[]) {
       }
    }
 
+   /* if needle isn't in haystack, return NULL */
    return NULL;
    
 }
