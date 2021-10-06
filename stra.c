@@ -103,11 +103,11 @@ if (haystack[i] == needle[0]) {
         stringstart = i;
         lastequal = 1;
 
-while (haystack[i] == needle[j] && needle[j] != NULL) {
+while (haystack[i] == needle[j] && needle[j] != '\0') {
         lastequal = 1;
         i++;
         j++;
-   if (needle[j] == NULL) {
+   if (needle[j] == '\0') {
    return (char*) &haystack[stringstart];
    }
 }
@@ -123,5 +123,5 @@ if (haystack[i] != needle[0]) {
  }
 }
 
-   return NULL;
+   return '\0';
 }
