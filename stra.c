@@ -123,5 +123,4 @@ if (needle[i] != haystack[j] && haystack[j] != '\0' && needle[i] != '\0') {
 if (haystack[j] == '\0') {
    return NULL;
 }
-
 }
