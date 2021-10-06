@@ -100,25 +100,23 @@ consider doing nested loop w if == continue going and else break? */char *Str_se
   h = Str_getLength(haystack);
 
 
-for (i = 0; i < h; i++) {
-   j = 0;
-    if (haystack[i] == needle[0]) {
+if (haystack[i] == needle[0]) {
         stringstart = i;
         lastequal = 1;
-    }
-    while (haystack[i] == needle[j] && needle[j] != NULL) {
+}
+while (haystack[i] == needle[j] && needle[j] != NULL) {
         lastequal = 1;
         i++;
         j++;
-    }
-    if (haystack[i] != needle[j]) {
+}
+if (haystack[i] != needle[0]) {
        if (lastequal == 1) {
         i = stringstart;
-    }
+}
         lastequal = 0;
         stringstart = 0;
-    }
-}
+        i++;
+ }
 
    return (char*) &haystack[stringstart];
 }
