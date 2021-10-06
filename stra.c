@@ -101,18 +101,18 @@ consider doing nested loop w if == continue going and else break? */char *Str_se
    lengthn = Str_getLength(needle);
 
 
-  /* for (i = 0; i < lengthn; i++) { */
+for (i = 0; i < lengthn; i++) { 
 for (j = 0; j < lengthh; j++) {
-      if (haystack[j] == needle[i]) {
+      if (Str_compare(haystack[j], needle[i]) == 0) {
          stringstart = j;
          i++;
          j++;
-         while (needle[i] == haystack[j]) {
+         while (Str_compare(haystack[j], needle[i]) == 0) {
             if (needle[i] == '/0') {
             return (char*) &haystack[stringstart];
          }
             if (haystack[j] == '/0') {
-               stringstart = 0;
+               stringstart = lengthh;
                return (char*) &haystack[stringstart];
             }
             i++;
@@ -122,7 +122,7 @@ for (j = 0; j < lengthh; j++) {
 
 else if (needle[i] != haystack[j]) {
    if (haystack[j] == '/0') {
-               stringstart = 0;
+               stringstart = lengthh;
                return (char*) &haystack[stringstart];
             }
    i = 0;
@@ -130,5 +130,7 @@ else if (needle[i] != haystack[j]) {
    stringstart = 0;
 }
    }
-return (char*) &haystack[stringstart];
+}
+
+return NULL;
 }
