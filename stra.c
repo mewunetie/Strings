@@ -108,6 +108,7 @@ for (j = 0; j < lengthh; j++) {
          stringstart = j;
          i++;
          j++;
+      }
          while ((haystack[j] == needle[i])) {
             i++;
             j++;
@@ -119,9 +120,9 @@ for (j = 0; j < lengthh; j++) {
                stringstart = lengthh;
                return (char*) &haystack[stringstart];
             }
-    } 
+    
 
-else if (needle[i] != haystack[j]) {
+if (needle[i] != haystack[j]) {
    if (haystack[j] == '/0') {
                stringstart = lengthh;
                return (char*) &haystack[stringstart];
