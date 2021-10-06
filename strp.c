@@ -49,8 +49,8 @@ char *Str_concat(char *s1, const char *s2) {
 }
 
 size_t Str_compare(const char *s1, const char *s2) {
-   const char *p1 = s1;
-   const char *p2 = s2;
+   const char *p1;
+   const char *p2;
 
    size_t returnval = 0;
    size_t lessthan = -1;
@@ -58,6 +58,9 @@ size_t Str_compare(const char *s1, const char *s2) {
 
    assert(s1 != NULL);
    assert(s2 != NULL);
+
+   p1 = s1;
+   p2 = s2;
 
     while (*p1 != '\0' || *p2 != '\0') {
        if (*p1 == '\0' && *p2 != '\0') {
