@@ -105,7 +105,10 @@ char *Str_search (const char haystack[], const char needle[]) {
    haystacklength = Str_getLength(haystack);
    needlelength = Str_getLength(needle);
 
-   assert(needlelength <= haystacklength);
+   if (needlelength > haystacklength) {
+      return NULL;
+   }
+
 
    while (haystack[index] != '/0') {
       if (needle[0] == haystack[index]) {
