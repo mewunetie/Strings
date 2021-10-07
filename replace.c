@@ -30,11 +30,12 @@ static size_t replaceAndWrite(const char *pcLine,
          printf(*pcLine);
          pcLine++;
       }
+      return 0;
    }
-
-   /* get first occurance of *pcForm - address and then print out all chars before hand, print out pcTo and the get the length of *pcForm and iterate over that portion using iterator, continue through with
-   the rest */
-   p = pcLine;
+ /* get first occurance of *pcForm - address and then print out all chars before hand, print out pcTo and the get the length of *pcForm and iterate over that portion using iterator, continue through with
+the rest */
+   else {
+         p = pcLine;
    
    while (p < strlen(*p)) {
    iterator = strstr(*pcLine, *pcFrom);
@@ -45,6 +46,10 @@ static size_t replaceAndWrite(const char *pcLine,
    iterator += length;
    printf(*pcTo);
 }
+   
+
+ 
+
 }
 
 
@@ -81,9 +86,7 @@ int main(int argc, char *argv[])
    pcTo = argv[2];
 
    while (fgets(acLine, MAX_LINE_SIZE, stdin) != NULL) {
-      if (argv[1] == '\0') {
-         printf(stdin);
-      }
+     replaceAndWrite(acLine, pcFrom, pcTo);
    }
 
    fprintf(stderr, "%lu replacements\n", (unsigned long)uReplaceCount);

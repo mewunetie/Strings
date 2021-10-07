@@ -124,6 +124,7 @@ char *Str_search (const char haystack[], const char needle[]) {
                found = 0;
                break;
             }
+            
             else {
                found = 1;
             }
