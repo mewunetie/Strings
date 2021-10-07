@@ -26,9 +26,9 @@ static size_t replaceAndWrite(const char *pcLine,
    size_t length;
    size_t replacements = 0;
    
-   assert(pcLine != '\0');
-   assert(pcFrom != '\0');
-   assert(pcTo != '\0');
+   assert(pcLine != NULL);
+   assert(pcFrom != NULL);
+   assert(pcTo != NULL);
    
    length = strlen(pcFrom);
 
@@ -51,6 +51,7 @@ the rest */
    printf(pcTo);
    replacements++;
 }
+return replacements;
    
 }
 }
