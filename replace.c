@@ -24,6 +24,7 @@ static size_t replaceAndWrite(const char *pcLine,
    const char *pointer;
    size_t iterator;
    size_t length;
+   size_t replacements = 0;
    
    assert(pcLine != '\0');
    assert(pcFrom != '\0');
@@ -42,12 +43,13 @@ the rest */
    pointer = pcLine;
    
    while (*pointer != '\0') {
-   while (p != strstr(pcLine, pcFrom)) {
-   printf(*p);
+   while (pointer != strstr(pcLine, pcFrom)) {
+   printf(*pointer);
    pointer++;
    }
    pointer += length;
    printf(pcTo);
+   replacements++;
 }
    
 }
