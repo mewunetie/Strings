@@ -21,7 +21,7 @@ static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
    size_t index = 0;
-   const char *p;
+   const char *pointer;
    size_t iterator;
    size_t length;
    
@@ -39,14 +39,14 @@ static size_t replaceAndWrite(const char *pcLine,
  /* get first occurance of *pcFrom - address and then print out all chars before hand, print out pcTo and the get the length of *pcForm and iterate over that portion using iterator, continue through with
 the rest */
    else {
-   p = pcLine;
+   pointer = pcLine;
    
-   while (*p != '\0') {
+   while (*pointer != '\0') {
    while (p != strstr(pcLine, pcFrom)) {
    printf(*p);
-   p++;
+   pointer++;
    }
-   p += length;
+   pointer += length;
    printf(pcTo);
 }
    
