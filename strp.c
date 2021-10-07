@@ -8,6 +8,7 @@
 #include <stdlib.h>
 /*----------------------------------------------------------*/
 
+/* increment a variable until null char is reached */
 size_t Str_getLength(const char *pcSrc)
 {
    const char *pcEnd;
@@ -18,6 +19,7 @@ size_t Str_getLength(const char *pcSrc)
    return (size_t)(pcEnd - pcSrc);
 }
 
+/* set the pointer of pcDest equal to pcSrc until the entire string is in pcDest */
 char *Str_copy(char *pcDest, const char *pcSrc)
 {
    char *dest = pcDest;
@@ -31,6 +33,7 @@ char *Str_copy(char *pcDest, const char *pcSrc)
    return pcDest;
 }
 
+/* set the indices after all of the chars of pcDest equal to pcSrc until the entire string is in pcDest */
 char *Str_concat(char *pcDest, const char *pcSrc) {
    char *dest = pcDest;
 
@@ -49,6 +52,7 @@ char *Str_concat(char *pcDest, const char *pcSrc) {
    return pcDest;
 }
 
+/* check whether each char of both strings s1 and s2 are equal, until finding one that isn't. then, return -1, 1, or 0 depending on their equality. */
 size_t Str_compare(const char *s1, const char *s2) {
    const char *p1;
    const char *p2;

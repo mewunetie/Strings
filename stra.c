@@ -89,7 +89,7 @@ size_t Str_compare (const char s1[], const char s2[]){
     return returnval;
 }
 
-/*  */
+/* search through string haystack and return first occurance of first char of needle */
 char *Str_search (const char haystack[], const char needle[]) {
    size_t i = 0;
    size_t found = 0;
@@ -124,7 +124,7 @@ char *Str_search (const char haystack[], const char needle[]) {
                found = 0;
                break;
             }
-            
+
             else {
                found = 1;
             }
