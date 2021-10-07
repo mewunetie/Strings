@@ -37,8 +37,7 @@ the rest */
    p = pcLine;
    
    while (*p != '\0') {
-   iterator = strstr(pcLine, pcFrom);
-   while (p != iterator) {
+   while (p != strstr(pcLine, pcFrom)) {
    printf(*p);
    p++;
    }
