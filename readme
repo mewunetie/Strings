@@ -44,11 +44,13 @@ may trigger a course penalty, and depending on the nature of the
 interaction, may additionally require the interaction being reported
 to the Committee on Discipline. Write "None" if you used no
 unauthorized sources of information.
+
 None.
 
 
 ------------------------------------------------------------------------
 What is your assessment of the assignment? Was it helpful? Was it fun?
+
 I think it was helpful in understanding pointers in comparison to arrays. I think it was both fun but pretty difficult in terms of the challenge portion.
 
 
@@ -57,14 +59,62 @@ I think it was helpful in understanding pointers in comparison to arrays. I thin
 will help your grader to grade it in the most favorable light? In
 particular, what bugs are in your submission?
 
+I've included comments in my Str_search() function in stra.c which I hope will show you the logic I used in that case, although it wasn't working. I used similar logic in strp, although I had a bit of trouble figuring out the pointers in this case.
+    
+I think a bug that I wasn't sure how to solve was saving the second occurance of the first letter in needle and then going back to it if the first trial didn't work.
 
+For example, I wasn't sure how to save the second index of "a" in haystack = aab when trying to find "ab" to go back to and iterate through again. I hope that makes sense!
+
+I also tried putting paranthises around the "while (*p++ = *pcSrc++);" statements, but that caused another error.
 
 ------------------------------------------------------------------------
 What warnings does splint generate on stra.c, and what are your
 disagreements with them? Copy the splint warnings here, and express your
 disagreement after each warning. If there are no warnings, then write
 "None."
+teststr.c: (in function testCompare)
+    teststr.c:329:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+      To allow arbitrary integral types to match any integral type, use
+      +matchanyintegral.
+    teststr.c:337:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:345:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:356:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:364:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:372:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:380:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:388:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:397:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:406:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:414:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:422:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:430:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:438:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:446:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:462:10: Assignment of size_t to int:
+                         iResult1 = Str_compare(acSrc1, acSrc2)
 
+- I assigned all numeric values to size_t, as I was told to by an instructor, so I'm not sure about why this is only happening in my compare function.
+
+    stra.c: (in function Str_compare)
+        stra.c:67:22: Variable lessthan initialized to type int, expects size_t: -1
+          To allow arbitrary integral types to match long unsigned, use +longintegral.
+
+- The same thing happened here, I was told to use size_t, which it's expecting.
 
 
 ------------------------------------------------------------------------
@@ -72,6 +122,10 @@ What warnings does critTer generate on stra.c, and what are your
 disagreements with them? Copy the critTer warnings here, and express
 your disagreement after each warning. If there are no warnings, then
 write "None."
+
+stra.c: line 127: low priority: 
+   This area is deeply nested at level 4, consider refactoring
+- I'm not sure about the nesting, as I couldn't think of another way where I wouldn't using the else statement.
 
 
 
@@ -81,7 +135,51 @@ disagreements with them? Copy the splint warnings here, and express your
 disagreement after each warning. If there are no warnings, then write
 "None."
 
+teststr.c: (in function testCompare)
+    teststr.c:329:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+      To allow arbitrary integral types to match any integral type, use
+      +matchanyintegral.
+    teststr.c:337:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:345:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:356:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:364:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:372:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:380:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:388:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:397:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:406:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:414:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:422:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:430:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:438:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:446:7: Assignment of size_t to int:
+                        iResult1 = Str_compare(acSrc1, acSrc2)
+    teststr.c:462:10: Assignment of size_t to int:
+                         iResult1 = Str_compare(acSrc1, acSrc2)
+    strp.c: (in function Str_copy)
+    strp.c:28:11: Test expression for while is assignment expression:
+                     *p++ = *pcSrc++
+    strp.c: (in function Str_compare)
+    strp.c:56:22: Variable lessthan initialized to type int, expects size_t: -1
+      To allow arbitrary integral types to match long unsigned, use +longintegral.
 
+- These are the same warnings as in stra.c. I used size_t in both cases, which I also used in other functions, so I think it should be fine as long as it works.
+    
+    
 
 ------------------------------------------------------------------------
 What warnings does critTer generate on strp.c, and what are your
@@ -89,7 +187,23 @@ disagreements with them? Copy the critTer warnings here, and express
 your disagreement after each warning. If there are no warnings, then
 write "None."
 
+   strp.c: line 52: medium priority:
+   Variable/function name 'p1' is too short
 
+   strp.c: line 53: medium priority:
+   Variable/function name 'p2' is too short
+
+   strp.c: line 88: medium priority:
+   Variable/function name 'p1' is too short
+
+   strp.c: line 89: medium priority:
+   Variable/function name 'p2' is too short
+
+   strp.c: line 118: low priority: 
+   This area is deeply nested at level 4, consider refactoring
+
+- I used p1 and p2 in order to match the names of s1 and s2 (as in source 1 and source 2) which was also used in the textbook.
+- I'm not sure about the nesting, as I couldn't think of another way where I wouldn't using the else statement.
 
 ------------------------------------------------------------------------
 What warnings does splint generate on replace.c, and what are your
@@ -97,7 +211,17 @@ disagreements with them? Copy the splint warnings here, and express your
 disagreement after each warning. If there are no warnings, then write
 "None."
 
+replace.c: (in function replaceAndWrite)
+replace.c:47:11: Function printf expects arg 1 to be char * gets char: *pointer
+  Types are incompatible. (Use -type to inhibit warning)
 
+  - I'm not sure how to print just one char at a time.
+
+replace.c: (in function main)
+replace.c:93:6: Return value (type size_t) ignored: replaceAndWrite(...
+  Result returned by function call is not used. If this is intended, can cast
+  result to (void) to eliminate message. (Use -retvalother to inhibit warning)
+ - I don't disagree, I simply don't know how to fix this.
 
 ------------------------------------------------------------------------
 What warnings does critTer generate on replace.c, and what are your
@@ -105,13 +229,13 @@ disagreements with them? Copy the critTer warnings here, and express
 your disagreement after each warning. If there are no warnings, then
 write "None."
 
-
+None.
 
 ------------------------------------------------------------------------
 Is it possible for Str_copy or Str_concat to call assert to verify
 that the destination memory area specified by the caller is large
 enough? Explain.
-
+Str_concat can't because the function overwrites the null byte of the destination string when concatinating the two strings. Str_copy can assert this because the destination string must be large enough to accommodate the source string, as stated in the man page.
 
 
 ------------------------------------------------------------------------
