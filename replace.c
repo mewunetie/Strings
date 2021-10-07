@@ -23,8 +23,13 @@ static size_t replaceAndWrite(const char *pcLine,
    size_t index = 0;
    const char *p;
    size_t iterator;
-
-   size_t length = strlen(pcFrom);
+   size_t length;
+   
+   assert(pcLine != '\0');
+   assert(pcFrom != '\0');
+   assert(pcTo != '\0');
+   
+   length = strlen(pcFrom);
 
    if (*pcFrom == '\0') {
       printf(pcLine);
